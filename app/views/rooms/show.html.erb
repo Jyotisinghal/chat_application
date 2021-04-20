@@ -1,0 +1,17 @@
+<h1>Chat room</h1>
+
+<div id="messages">
+  <%= render @messages %>
+</div>
+
+<form>
+  <label>Say something:</label><br>
+  <input type="text" data-behavior="room_speaker" onsubmit="save_message()">
+</form>
+
+
+<script type="text/javascript">
+  function save_message() {
+    App.cable.speak('text')
+  }
+</script>
